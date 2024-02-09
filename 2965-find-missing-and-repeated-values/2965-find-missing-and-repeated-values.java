@@ -14,6 +14,7 @@ class Solution {
         for(int i=0;i<=Math.pow(grid.length, 2)-1;i++){
             if(!(list.contains(i+1))){
                 result[1]=(i+1);
+                break;
             }
         }
         return result;
