@@ -1,7 +1,6 @@
 class Solution {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         
-        
          Arrays.sort(candidates);
         List<List<Integer>> listOfLists = new ArrayList<>();
 
@@ -24,6 +23,7 @@ class Solution {
             if (candidate > target)
                 break;
 
+            
             // Add candidate to the current combination
             current.add(candidate);
 
