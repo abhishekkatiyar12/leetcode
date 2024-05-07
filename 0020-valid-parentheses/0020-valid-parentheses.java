@@ -16,7 +16,7 @@ class Solution {
             if (c == '(' || c == '[' || c == '{') {
                 stack.push(c);
             } else {
-                // If the stack is empty, there's no corresponding opening parenthesis for this closing one
+               
                 if (stack.isEmpty()) {
                     return false;
                 }
