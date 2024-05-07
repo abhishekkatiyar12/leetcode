@@ -43,7 +43,7 @@ class Solution {
         newlist=result;
         
 
-        int val=0,carry=0;
+        int val=0,carry=0,count=0;;
         while(curr!=null){
             ListNode temp=new ListNode();
             
