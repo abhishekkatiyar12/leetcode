@@ -48,8 +48,8 @@ class Solution {
             ListNode temp=new ListNode();
             
             val=curr.val;
-            val+=val;
-            val+=carry;
+            val=(val*2)+carry;
+            // val+=carry;
             temp.val=val%10;
             carry=val/10;
             curr=curr.next;
