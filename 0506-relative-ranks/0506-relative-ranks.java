@@ -14,11 +14,11 @@ class Solution {
         
         
          Map<Integer, Integer> scoreMap = new HashMap<>();
-        int count=1;
+        // int count=1;
         // storing it in hashmap
-        for(int i=length-1;i>=0;i--){
-            scoreMap.put(num[i],count);
-            count++;
+        for(int i=0;i<length;i++){
+            scoreMap.put(num[i],length-i);
+            
         }
         String[] str=new String[length];
         for(int i=0;i<length;i++){
