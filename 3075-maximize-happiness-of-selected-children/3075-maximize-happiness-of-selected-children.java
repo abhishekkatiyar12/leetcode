@@ -1,23 +1,23 @@
-import java.util.*;
-
 class Solution {
     public long maximumHappinessSum(int[] happiness, int k) {
-        long ans = 0;
+        long ans=0;
+        int count=0,temp;
         
-        
-        Arrays.sort(happiness);
-        int count=0;
-        // Select k children with the highest happiness values
-        for (int i = happiness.length - 1; i >= 0 && count!=k; i--) {
-            // Calculate the happiness value after k turns
-            int selectedHappiness = Math.max(0, happiness[i] -count);
+      
+    Arrays.sort(happiness);
+    int i=happiness.length-1;
             
-            // Accumulate the maximum possible happiness sum
-            ans += selectedHappiness;
-            
-            count++; // Decrement the number of turns left
-        }
-        
+        // till count reamins less than k
+ while(count!=k && i>=0){
+      temp=happiness[i]-count;
+     temp= Math.max(0,temp);
+    
+     ans+=temp;
+     
+     count++;
+     i--;
+     }
         return ans;
+        
     }
 }
