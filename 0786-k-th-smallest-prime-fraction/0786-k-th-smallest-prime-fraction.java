@@ -13,11 +13,13 @@ class Solution {
                 tree.put(fractionValue, fractionStr); // Store fraction value as key and string as value
             }
         }
+        int count=0;
 
         // Retrieve the k-th smallest fraction from the TreeMap
         String kthFractionStr = "";
         for (Map.Entry<Double, String> entry : tree.entrySet()) {
-            if (--k == 0) {
+            count++;
+            if (count==k) {
                 kthFractionStr = entry.getValue();
                 break;
             }
