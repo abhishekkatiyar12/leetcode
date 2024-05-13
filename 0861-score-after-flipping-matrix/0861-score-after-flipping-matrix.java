@@ -14,7 +14,7 @@ class Solution {
             totalScore+=decimal;
         }
         
-        // count the number of zeros in each column if they are less than the 0's then flip them
+        // count the number of zeros in each column if there are less than the 0's then flip them
        
         for(int i=0;i<n;i++){
             int countzeros=0,countone=0;
@@ -35,7 +35,7 @@ class Solution {
                 }
             }
             
-           
+           // checking for row's if they are starting from 0 filp the entire row--------
                 for(int j=0;j<m;j++){
                     if(grid[j][0]==0){
                         for(int a=0;a<n;a++){
@@ -53,7 +53,7 @@ class Solution {
         
        
         
-        
+        // calculating the new score 
         
         int new_total=0;
          for(int i=0;i<m;i++){
@@ -64,7 +64,8 @@ class Solution {
             int decimal = Integer.parseInt(binary, 2);
             new_total+=decimal;
         }
-        new_total=Math.max(totalScore,new_total);
+        
+       
         return new_total;
         
     }
