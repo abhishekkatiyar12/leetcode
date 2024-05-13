@@ -2,17 +2,17 @@ class Solution {
     public int matrixScore(int[][] grid) {
         int m=grid.length;
         int n=grid[0].length;
-        int totalScore=0;
+        // int totalScore=0;
         
         // calculate the total score of original grid
-        for(int i=0;i<m;i++){
-            String binary="";
-            for(int j=0;j<n;j++){
-                binary +=grid[i][j];
-            }
-            int decimal = Integer.parseInt(binary, 2);
-            totalScore+=decimal;
-        }
+//         for(int i=0;i<m;i++){
+//             String binary="";
+//             for(int j=0;j<n;j++){
+//                 binary +=grid[i][j];
+//             }
+//             int decimal = Integer.parseInt(binary, 2);
+//             totalScore+=decimal;
+//         }
         
         // count the number of zeros in each column if there are less than the 0's then flip them
        
