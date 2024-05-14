@@ -1,26 +1,24 @@
 class Solution {
     public int getMaximumGold(int[][] grid) {
+        int maxGold = 0;
         int m = grid.length;
         int n = grid[0].length;
-        int maxGold = 0;
 
-        // Iterate over each cell to start the DFS from cells with gold
+        // Iterate over each cell in the grid
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if (grid[i][j] > 0) { // Found a cell with gold
-                    int currentGold = dfs(grid, i, j);
+                if (grid[i][j] != 0) { // Found a cell with gold
+                    int currentGold = findMaxGold(grid, i, j);
                     maxGold = Math.max(maxGold, currentGold);
                 }
             }
         }
-
         return maxGold;
     }
 
-    private int dfs(int[][] grid, int row, int col) {
-        // Base cases: Out of grid bounds or cell has 0 gold
+    private int findMaxGold(int[][] grid, int row, int col) {
         if (row < 0 || row >= grid.length || col < 0 || col >= grid[0].length || grid[row][col] == 0) {
-            return 0;
+            return 0; // Out of bounds or no gold in this cell
         }
 
         // Store the current cell's gold and mark it as visited (set to 0)
@@ -28,10 +26,10 @@ class Solution {
         grid[row][col] = 0;
 
         // Explore all four possible directions
-        int right = dfs(grid, row, col + 1); // Move right
-        int left = dfs(grid, row, col - 1); // Move left
-        int down = dfs(grid, row + 1, col); // Move down
-        int up = dfs(grid, row - 1, col); // Move up
+        int right = findMaxGold(grid, row, col + 1); // Move right
+        int left = findMaxGold(grid, row, col - 1); // Move left
+        int down = findMaxGold(grid, row + 1, col); // Move down
+        int up = findMaxGold(grid, row - 1, col); // Move up
 
         // Restore the original value of the current cell
         grid[row][col] = currentGold;
