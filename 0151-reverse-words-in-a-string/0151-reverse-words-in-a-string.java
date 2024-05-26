@@ -2,7 +2,7 @@ class Solution {
     public String reverseWords(String s) {
         // Trim leading and trailing spaces and replace multiple spaces with a single space
         String newString = s.trim().replaceAll("\\s+", " ");
-        System.out.println(newString);  
+       
         
         // Split the normalized string into words
         String[] words = newString.split(" ");
@@ -16,7 +16,7 @@ class Solution {
             }
         }
         
-        System.out.println(result.toString()); 
+        
         return result.toString();
     }
 }
