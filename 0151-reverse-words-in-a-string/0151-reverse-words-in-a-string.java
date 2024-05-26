@@ -6,26 +6,18 @@ class Solution {
         
         // Split the normalized string into words
         String[] words = newString.split(" ");
-        // StringBuilder result = new StringBuilder();
-         String[] reversedWords = new String[words.length];
+        StringBuilder result = new StringBuilder();
         
-        // Add words to the array in reverse order
-        for (int i = 0; i < words.length; i++) {
-            reversedWords[i] = words[words.length - 1 - i];
+        // Iterate through the words array in reverse order and append to result
+        for (int i = words.length - 1; i >= 0; i--) {
+            result.append(words[i]);
+            if (i != 0) {
+                result.append(" ");
+            }
         }
         
-        // Join the reversed words into a single string
-        String result = String.join(" ", reversedWords);
-//         // Iterate through the words array in reverse order and append to result
-//         for (int i = words.length - 1; i >= 0; i--) {
-//             result.append(words[i]);
-//             if (i != 0) {
-//                 result.append(" ");
-//             }
-//         }
         
-        return result;
-        // return result.toString();
+        return result.toString();
     }
 }
     
