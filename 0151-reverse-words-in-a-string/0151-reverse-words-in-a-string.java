@@ -1,33 +1,23 @@
 class Solution {
     public String reverseWords(String s) {
-        if(s.length()<=1){
-            return s;
-        }
-        String newString= s.trim();
-        String newStrng=newString.replaceAll("\\s+"," ");
-        System.out.println(newStrng);
-        String result="";
+        // Trim leading and trailing spaces and replace multiple spaces with a single space
+        String newString = s.trim().replaceAll("\\s+", " ");
+        System.out.println(newString);  
         
-        int right=newStrng.length();
-        int left=0;
-        for(int i=newStrng.length()-1;i>=0;i--){
-           if(newStrng.charAt(i)==' '){
-               left=i+1;
-              String temp=newStrng.substring(left,right);
-             result= prepareString(temp,result);
-              
-               right=i;
-           }
-            
-            
+        // Split the normalized string into words
+        String[] words = newString.split(" ");
+        StringBuilder result = new StringBuilder();
+        
+        // Iterate through the words array in reverse order and append to result
+        for (int i = words.length - 1; i >= 0; i--) {
+            result.append(words[i]);
+            if (i != 0) {
+                result.append(" ");
+            }
         }
-        left=0;
-            String temp=newStrng.substring(left,right);
-             result= prepareString(temp,result);
-        System.out.println(result.trim());
-        return result.trim();
-    }
-    public static String prepareString(String s,String result){
-       return  (result+s+" ");
+        
+        System.out.println(result.toString()); 
+        return result.toString();
     }
 }
+    
