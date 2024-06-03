@@ -37,11 +37,11 @@ class Solution {
         ListNode prev = null;
         ListNode current = head;
         while (current != null) {
-            ListNode next = current.next; // Store the next node
-            current.next = prev;          // Reverse the current node's pointer
-            prev = current;               // Move prev and current one step forward
+            ListNode next = current.next; 
+            current.next = prev;          
+            prev = current;              
             current = next;
         }
-        return prev; // prev becomes the new head of the reversed list
+        return prev; 
     }
 }
