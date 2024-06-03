@@ -14,16 +14,17 @@ class Solution {
         ListNode NewHead = reverseLinkedList(head);
         ListNode curr = NewHead;
         
-       if (n == 1) {
+        // Special case: if removing the first node in the reversed list
+        if (n == 1) {
             NewHead = NewHead.next;  
-       } else {
+        } else {
             int count = 1;
             while (curr != null && count < n - 1) {
                 curr = curr.next;
                 count++;
             }
             if (curr != null && curr.next != null) {
-                curr.next = curr.next.next;  // Skip the nth node
+                curr.next = curr.next.next; 
             }
         }
         
@@ -36,11 +37,11 @@ class Solution {
         ListNode prev = null;
         ListNode current = head;
         while (current != null) {
-            ListNode next = current.next; 
-            current.next = prev;          
-            prev = current;               
+            ListNode next = current.next; // Store the next node
+            current.next = prev;          // Reverse the current node's pointer
+            prev = current;               // Move prev and current one step forward
             current = next;
         }
-        return prev; 
+        return prev; // prev becomes the new head of the reversed list
     }
 }
