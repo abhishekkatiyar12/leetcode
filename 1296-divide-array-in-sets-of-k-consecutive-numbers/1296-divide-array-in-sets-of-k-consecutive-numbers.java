@@ -1,8 +1,3 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-
 class Solution {
     public boolean isPossibleDivide(int[] nums, int k) {
         int loop = nums.length / k;
