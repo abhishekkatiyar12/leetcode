@@ -7,7 +7,7 @@ class Solution {
             arraySum+=nums[i];
         }
         int missing= sum-arraySum;
-        System.out.println(missing);
+        
         return missing;
     }
 }
