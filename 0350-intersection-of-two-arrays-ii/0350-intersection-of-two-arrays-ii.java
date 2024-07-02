@@ -1,36 +1,29 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
 class Solution {
     public int[] intersect(int[] nums1, int[] nums2) {
-        
-    
-        List<Integer> result = new ArrayList<>();
-        int[] frequency1 = new int[1001];  // Assuming the range of numbers is up to 1000
-        int[] frequency2 = new int[1001];
+        int index1 = 0, index2 = 0;
+        ArrayList<Integer> list = new ArrayList<>();
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
 
-        // Count frequency of each element in nums1
-        for (int num : nums1) {
-            frequency1[num]++;
-        }
-
-        // Count frequency of each element in nums2
-        for (int num : nums2) {
-            frequency2[num]++;
-        }
-
-        // Find intersection considering frequency
-        for (int i = 0; i < 1001; i++) {
-            int commonFrequency = Math.min(frequency1[i], frequency2[i]);
-            for (int j = 0; j < commonFrequency; j++) {
-                result.add(i);
+        while (index1 < nums1.length && index2 < nums2.length) {
+            if (nums1[index1] == nums2[index2]) {
+                list.add(nums1[index1]);
+                index1++;
+                index2++;
+            } else if (nums1[index1] < nums2[index2]) {
+                index1++;
+            } else {
+                index2++;
             }
         }
 
-        // Convert List to array
-        int[] intersectionArray = new int[result.size()];
-        for (int i = 0; i < result.size(); i++) {
-            intersectionArray[i] = result.get(i);
+        int[] result = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            result[i] = list.get(i);
         }
-
-        return intersectionArray;
-        
+        return result;
     }
 }
