@@ -1,20 +1,21 @@
 class Solution {
-    public boolean checkIfExist(int[] arr) {
-        boolean result=false;
-        for(int i=0;i<arr.length;i++){
-          int current=arr[i];
-           for(int j=0; j<arr.length;j++){
-               if(i==j){
-                   continue;
-               }
-               if(arr[i]==2*arr[j]){
-                  result=true;
-                   break;
-               }
-           }
-      }
-        // System.out.println("false");
-        return  result;
-    }
-}
+    public boolean checkIfExist(int[] arr) {      
+       HashSet<Integer> seen = new HashSet<>();
+
+        for (int num : arr) {
+            if (seen.contains(2 * num) ||((num%2==0) &&(seen.contains(num / 2)))) {
+                return true;
+            }
+            
+            seen.add(num);
     
+            
+
+        }
+
+        return false;
+    }
+        
+        
+        
+    }
